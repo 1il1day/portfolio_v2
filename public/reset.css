@@ -56,3 +56,15 @@ a{
 *::after {
   box-sizing: border-box;
 }
+
+/* 스크롤 커스텀 */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3B414D;
+}
+*::-webkit-scrollbar-track {
+  background: #282C34;
+}
