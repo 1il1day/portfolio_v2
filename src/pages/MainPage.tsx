@@ -1,9 +1,9 @@
 import React from 'react'
 import Header from '../components/Header'
-import MainSection from '../components/MainSection'
-import ProjectsSection from '../components/ProjectsSection'
-import AboutSection from '../components/AboutSection'
-import ContactSection from '../components/ContactSection'
+import MainSection from '../components/section/MainSection'
+import ProjectsSection from '../components/section/ProjectsSection'
+import AboutSection from '../components/section/AboutSection'
+import ContactSection from '../components/section/ContactSection'
 
 type Props = {}
 
