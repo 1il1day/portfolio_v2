@@ -38,6 +38,15 @@ export default function Header() {
     }
   }
 
+  // isOpen 상태일 때, 스크롤 막기
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
+
   // react-scroll spy 강제 업데이트
   useEffect(() => {
     scrollSpy.update();
@@ -50,23 +59,23 @@ export default function Header() {
           <span>KEB * </span>
           <span className="point">PUBLISHER</span>
         </LogoWrap>
-          <Navigation isOpen={isOpen}>
-            {navItems.map((item)=>(
-              <NavList 
-                key={item.name} 
-                to={item.name} 
-                spy={true} 
-                smooth={true} 
-                duration={400} 
-                offset={isPc ? -80 : -60} 
-                onSetActive={() => setCurrentSection(item.name)}
-                isOpen={isOpen}
-                onClick={clickNav}
-              >
-                {item.name}
-              </NavList>
-            ))}
-          </Navigation>
+        <Navigation>
+          {navItems.map((item)=>(
+            <NavList 
+              key={item.name} 
+              to={item.name} 
+              spy={true} 
+              smooth={true} 
+              duration={400} 
+              offset={isPc ? -80 : -60} 
+              onSetActive={() => setCurrentSection(item.name)}
+              isOpen={isOpen}
+              onClick={clickNav}
+            >
+              {item.name}
+            </NavList>
+          ))}
+        </Navigation>
         {!isPc && ( 
           <>
             <MenuWrap onClick={toggleMenu}>
@@ -124,10 +133,9 @@ const LogoWrap = styled.h1`
     color: #4194E9;
   }
 `;
-const Navigation = styled.nav<{isOpen: boolean}>`
+const Navigation = styled.nav`
   display: flex;
   gap: 8px;
-  cursor: pointer;
   @media (max-width: 767px) { // ~태블릿
     position: absolute;
     top: 60px;
@@ -146,10 +154,11 @@ const NavList = styled(Link)<{isOpen: boolean}>`
   text-align: center;
   padding: 12px 8px;
   transition: all .2s .2s;
+  cursor: pointer;
   @media (max-width: 767px) { //~태블릿
+    visibility: hidden;
     display: inline-block;
     padding: 10px 8px;
-    visibility: hidden;
     opacity: 0;
     transform: translateY(6px);
     flex: none;
@@ -174,15 +183,43 @@ const MenuWrap = styled.div`
 const MobileNav = styled.div<{isOpen: boolean}>`
   position: fixed;
   top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  width: calc(100% + 1px);
-  height: ${({isOpen})=>(isOpen ? '218px':'0px')};
-  background: #3B414D;
-  transition: height 0.3s ease;
+  left: 0;
+  width: 100%;
+  height: ${({isOpen})=>(isOpen ? 'calc(100% - 60px)':'0px')};
+  z-index: -1;
+  background-color: rgba(47, 47, 47, 0.5);
+  backdrop-filter: blur(15px);
+  visibility: ${({isOpen})=>(isOpen ? 'visible':'hidden')};
+  @media (min-width: 768px) {
+    height: calc(100% - 80px);
+  }
+  &::before{
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: calc(100% + 1px);
+    height: ${({isOpen})=>(isOpen ? '218px':'0px')};
+    background-color: #3B414D;
+    transition: height 0.3s ease;
+  }
+  &::after{ // 하단 배경 요소
+    content: "";
+    position: absolute;
+    top: ${({isOpen})=>(isOpen ? '218px':'0px')};
+    left: 0;
+    z-index: 10;
+    background-color: #21252B;
+    width: 100%;
+    height: 18px;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.3s ease;
+  }
 `;
