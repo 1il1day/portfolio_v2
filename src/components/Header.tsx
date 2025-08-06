@@ -6,6 +6,8 @@ import Icon from './Icon';
 import { FaFolder } from "react-icons/fa";
 import { FaFolderOpen  } from "react-icons/fa";
 import { useMediaQuery } from 'react-responsive';
+import { FaStarOfLife } from "react-icons/fa6";
+import { AnimSpinStar } from '../style/CommonStyle';
 
 export default function Header() {
   const [currentSection, setCurrentSection] = useState("");
@@ -56,8 +58,11 @@ export default function Header() {
     <HeaderWrap>
       <HeaderInner>
         <LogoWrap onClick={clickLogo}>
-          <span>KEB * </span>
-          <span className="point">PUBLISHER</span>
+          <span>KEB </span>
+          <div className="spin-star">
+            <Icon name={FaStarOfLife} size={14} color="#282C34"/>
+          </div>
+          <span className="point"> PUBLISHER</span>
         </LogoWrap>
         <Navigation>
           {navItems.map((item)=>(
@@ -118,6 +123,7 @@ const LogoWrap = styled.h1`
   padding: 10px 8px;
   font-size: 16px;
   background-color: #fff;
+  color: #282C34;
   border-radius: 4px;
   cursor: pointer;
   @media (min-width: 768px) {
@@ -132,11 +138,12 @@ const LogoWrap = styled.h1`
   .point{
     color: #4194E9;
   }
+  ${AnimSpinStar}
 `;
 const Navigation = styled.nav`
   display: flex;
   gap: 8px;
-  @media (max-width: 767px) { // ~태블릿
+  @media (max-width: 767px) { // ~ 767px
     position: absolute;
     top: 60px;
     left: 50%;
@@ -155,7 +162,7 @@ const NavList = styled(Link)<{isOpen: boolean}>`
   padding: 12px 8px;
   transition: all .2s .2s;
   cursor: pointer;
-  @media (max-width: 767px) { //~태블릿
+  @media (max-width: 767px) { // ~ 767px
     visibility: hidden;
     display: inline-block;
     padding: 10px 8px;
