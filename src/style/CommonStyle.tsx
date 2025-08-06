@@ -16,3 +16,20 @@ export const AnimSpinStar = css`
     }
   }
 `;
+
+export const CircleBtnStyle = css`
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background-color: #282C34;
+  font-size: 18px;
+  color: #FFF;
+  user-select: none;
+  cursor: pointer;
+  @media (min-width: 1600px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
