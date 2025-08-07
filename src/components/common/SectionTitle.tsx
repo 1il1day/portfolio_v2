@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { FaStarOfLife } from "react-icons/fa6";
-import { AnimSpinStar } from '../style/CommonStyle';
+import { AnimSpinStar } from '../../style/CommonStyle';
 import Icon from './Icon';
 import { useMediaQuery } from 'react-responsive';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import SwiperTab from '../SwiperTab';
+import SwiperTab from '../common/SwiperTab';
 import { Link } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive';
 import { ReactTyped } from "react-typed";

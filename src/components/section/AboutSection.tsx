@@ -1,14 +1,14 @@
 import React, { useLayoutEffect } from 'react'
 import styled from 'styled-components';
-import SectionTitle from '../SectionTitle';
+import SectionTitle from '../common/SectionTitle';
 import { FaArrowDown } from "react-icons/fa";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AnimUpDown, CircleBtnStyle } from '../../style/CommonStyle';
-import Icon from '../Icon';
+import Icon from '../common/Icon';
 import { useMediaQuery } from 'react-responsive';
-import AboutCard from '../AboutCard';
+import AboutCard from './items/AboutCard';
 
 
 // 카드 데이터

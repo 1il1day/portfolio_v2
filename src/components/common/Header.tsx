@@ -7,7 +7,7 @@ import { FaFolder } from "react-icons/fa";
 import { FaFolderOpen  } from "react-icons/fa";
 import { useMediaQuery } from 'react-responsive';
 import { FaStarOfLife } from "react-icons/fa6";
-import { AnimSpinStar } from '../style/CommonStyle';
+import { AnimSpinStar } from '../../style/CommonStyle';
 
 export default function Header() {
   const [currentSection, setCurrentSection] = useState("");

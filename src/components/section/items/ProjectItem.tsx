@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Badge from './Badge';
+import Badge from '../../common/Badge';
 
 type ListDataType = {
   title: string;

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import styled from 'styled-components';
-import SectionTitle from '../SectionTitle';
+import SectionTitle from '../common/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,12 +9,12 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import { Navigation } from 'swiper/modules';
 import { useMediaQuery } from 'react-responsive';
-import ProjectItem from '../ProjectItem';
+import ProjectItem from './items/ProjectItem';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CircleBtnStyle } from '../../style/CommonStyle';
-import Icon from '../Icon';
+import Icon from '../common/Icon';
 
 
 const projectsData = [

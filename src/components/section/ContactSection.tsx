@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import SectionTitle from '../SectionTitle';
+import SectionTitle from '../common/SectionTitle';
 import { GrGithub } from "react-icons/gr";
-import Icon from '../Icon';
-import Badge from '../Badge';
+import Icon from '../common/Icon';
+import Badge from '../common/Badge';
 
 const listData = [
   {
