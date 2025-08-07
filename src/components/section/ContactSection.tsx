@@ -78,6 +78,7 @@ const TitleIconWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  z-index: 1;
 `;
 const ContactListWrap = styled.ul`
   display: flex;

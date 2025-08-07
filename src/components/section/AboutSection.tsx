@@ -109,61 +109,66 @@ export default function AboutSection() {
   useLayoutEffect(() => {
     let mm = gsap.matchMedia();
 
-    let ctx = gsap.context(() => {
-      mm.add("(min-width: 1200px) and (max-width: 1299px)", () => {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: "#about",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 0.8,
-            pin: ".card-wrap",
-            invalidateOnRefresh: true,
-            // markers: true,
-          },
-        });
-        tl.to(".card:nth-child(1)", { x: "-5%", y:0, rotate:"0deg", scaleX:0 })
-          .to(".card:nth-child(2)", { scaleX:0 },"<")
-          .to(".card:nth-child(3)", { x: "5%", y:0, rotate:"0deg", scaleX:0 },"<")
-          .to(".card:nth-child(1)", { scaleX:1 })
-          .to(".card:nth-child(1)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(1) .card-list-wrap", { opacity: 1, duration:0},"<")
-          .to(".card:nth-child(2)", { scaleX:1},"<")
-          .to(".card:nth-child(2)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(2) .card-list-wrap", { opacity: 1, duration:0},"<")
-          .to(".card:nth-child(3)", { scaleX:1},"<")
-          .to(".card:nth-child(3)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(3) .card-list-wrap", { opacity: 1, duration:0},"<")
+    mm.add("(min-width: 1200px) and (max-width: 1299px)", () => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.8,
+          pin: ".card-wrap",
+          invalidateOnRefresh: true,
+          // markers: true,
+        },
       });
-      mm.add("(min-width: 1300px)", () => {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: "#about",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 0.8,
-            pin: ".card-wrap",
-            invalidateOnRefresh: true,
-            // markers: true,
-          },
-        });
-        tl.to(".card:nth-child(1)", { x: "-20%", y:0, rotate:"0deg", scaleX:0 })
-          .to(".card:nth-child(2)", { scaleX:0 },"<")
-          .to(".card:nth-child(3)", { x: "20%", y:0, rotate:"0deg", scaleX:0 },"<")
-          .to(".card:nth-child(1)", { scaleX:1 })
-          .to(".card:nth-child(1)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(1) .card-list-wrap", { opacity: 1, duration:0},"<")
-          .to(".card:nth-child(2)", { scaleX:1},"<")
-          .to(".card:nth-child(2)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(2) .card-list-wrap", { opacity: 1, duration:0},"<")
-          .to(".card:nth-child(3)", { scaleX:1},"<")
-          .to(".card:nth-child(3)", { backgroundColor: "#fff", duration:0 },"<")
-          .to(".card:nth-child(3) .card-list-wrap", { opacity: 1, duration:0},"<")
+      tl.to(".card:nth-child(1)", { x: "-5%", y:0, rotate:"0deg", scaleX:0 })
+        .to(".card:nth-child(2)", { scaleX:0 },"<")
+        .to(".card:nth-child(3)", { x: "5%", y:0, rotate:"0deg", scaleX:0 },"<")
+        .to(".card:nth-child(1)", { scaleX:1 })
+        .to(".card:nth-child(1)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(1) .card-list-wrap", { opacity: 1, duration:0},"<")
+        .to(".card:nth-child(2)", { scaleX:1},"<")
+        .to(".card:nth-child(2)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(2) .card-list-wrap", { opacity: 1, duration:0},"<")
+        .to(".card:nth-child(3)", { scaleX:1},"<")
+        .to(".card:nth-child(3)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(3) .card-list-wrap", { opacity: 1, duration:0},"<")
+
+      return () => {
+        tl.kill()
+      };
+    });
+    mm.add("(min-width: 1300px)", () => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.8,
+          pin: ".card-wrap",
+          invalidateOnRefresh: true,
+          // markers: true,
+        },
       });
+      tl.to(".card:nth-child(1)", { x: "-20%", y:0, rotate:"0deg", scaleX:0 })
+        .to(".card:nth-child(2)", { scaleX:0 },"<")
+        .to(".card:nth-child(3)", { x: "20%", y:0, rotate:"0deg", scaleX:0 },"<")
+        .to(".card:nth-child(1)", { scaleX:1 })
+        .to(".card:nth-child(1)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(1) .card-list-wrap", { opacity: 1, duration:0},"<")
+        .to(".card:nth-child(2)", { scaleX:1},"<")
+        .to(".card:nth-child(2)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(2) .card-list-wrap", { opacity: 1, duration:0},"<")
+        .to(".card:nth-child(3)", { scaleX:1},"<")
+        .to(".card:nth-child(3)", { backgroundColor: "#fff", duration:0 },"<")
+        .to(".card:nth-child(3) .card-list-wrap", { opacity: 1, duration:0},"<")
+
+      return () => {
+        tl.kill()
+      };
     });
 
     return () => {
-      ctx.revert();
       mm.revert();
     };
   }, []);
@@ -244,6 +249,7 @@ const ScrollHint = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 1;
   gap: 4px;
   cursor: auto;
   ${AnimUpDown}
