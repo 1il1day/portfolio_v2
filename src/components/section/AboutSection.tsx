@@ -5,7 +5,7 @@ import { FaArrowDown } from "react-icons/fa";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CircleBtnStyle } from '../../style/CommonStyle';
+import { AnimUpDown, CircleBtnStyle } from '../../style/CommonStyle';
 import Icon from '../Icon';
 import { useMediaQuery } from 'react-responsive';
 import AboutCard from '../AboutCard';
@@ -118,6 +118,7 @@ export default function AboutSection() {
             end: "bottom bottom",
             scrub: 0.8,
             pin: ".card-wrap",
+            invalidateOnRefresh: true,
             // markers: true,
           },
         });
@@ -142,6 +143,7 @@ export default function AboutSection() {
             end: "bottom bottom",
             scrub: 0.8,
             pin: ".card-wrap",
+            invalidateOnRefresh: true,
             // markers: true,
           },
         });
@@ -159,6 +161,7 @@ export default function AboutSection() {
           .to(".card:nth-child(3) .card-list-wrap", { opacity: 1, duration:0},"<")
       });
     });
+
     return () => {
       ctx.revert();
       mm.revert();
@@ -173,7 +176,13 @@ export default function AboutSection() {
         </div>
         <SectionInner>
           <SectionTitle>ABOUT ME</SectionTitle>
-          {isPc && <ScrollHint>SCROLL<Icon name={FaArrowDown}/></ScrollHint>}
+          {isPc && <ScrollHint>
+            SCROLL
+            <div className="anim-up-down">
+              <Icon name={FaArrowDown}/>
+            </div>
+            </ScrollHint>
+          }
         </SectionInner>
         {isPc && <AboutCard data={cardData}/>}
       </AboutCardWrap>
@@ -266,9 +275,8 @@ const ScrollHint = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-family: 'BoldDunggeunmo',sans-serif;
-  font-size: 20px;
   cursor: auto;
+  ${AnimUpDown}
 `;
 const AboutCardWrap = styled.article`
   padding-top: 160px;
