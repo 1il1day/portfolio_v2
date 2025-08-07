@@ -7,6 +7,11 @@ type Props = {
   hoverBadge?:boolean;
 }
 
+/**
+ * @param [props.children] - 내용
+ * @param [props.className]
+ * @param [props.hoverBadge] - hover 시 가상요소 스타일
+ */
 export default function Badge({children, className = '', hoverBadge = false}: Props) {
   return (
     <BadgeWrap className={className} hoverBadge={hoverBadge}>{children}</BadgeWrap>

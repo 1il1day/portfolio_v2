@@ -193,7 +193,7 @@ export default function AboutSection() {
   )
 }
 
-const AboutSectionWrap = styled.div`
+const AboutSectionWrap = styled.section`
   position: relative;
   @media (min-width: 1200px) {
     height: 200vh;
@@ -211,7 +211,6 @@ const AboutSectionWrap = styled.div`
       z-index: -1;
       width: 100%;
       height: 500px;
-      border-radius: 5px;
       background-color: #50576C;
       overflow: hidden;
       @media (min-width: 768px) {
@@ -278,6 +277,6 @@ const ScrollHint = styled.div`
   cursor: auto;
   ${AnimUpDown}
 `;
-const AboutCardWrap = styled.article`
+const AboutCardWrap = styled.div`
   padding-top: 160px;
 `;

@@ -168,7 +168,7 @@ export default function ProjectsSection() {
   )
 }
 
-const ProjectsSectionWrap = styled.div`
+const ProjectsSectionWrap = styled.section`
   display: block;
   position: relative;
   background-color: #fff;

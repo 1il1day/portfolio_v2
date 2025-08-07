@@ -9,6 +9,9 @@ type Props = {
   children: string;
 }
 
+/**
+ * @param [props.children] - 내용
+ */
 export default function SectionTitle({children}: Props) {
   const isPc = useMediaQuery({ minWidth: 768 });
 

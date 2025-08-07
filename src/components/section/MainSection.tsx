@@ -406,7 +406,7 @@ const TerminalWrap = styled.div`
   }
 `;
 
-const MainSectionWrap = styled.div`
+const MainSectionWrap = styled.section`
   display: flex;
   flex-direction: column;
   position: relative;

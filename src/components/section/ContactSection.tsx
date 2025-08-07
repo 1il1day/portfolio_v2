@@ -44,10 +44,9 @@ export default function ContactSection() {
   )
 }
 
-const ContactSectionWrap = styled.div`
+const ContactSectionWrap = styled.section`
   position: relative;
   display: flex;
-  align-content: center;
   width: 100%;
   height: calc(100vh - 80px);
   @media (min-width: 1200px) {
@@ -61,7 +60,6 @@ const ContactSectionWrap = styled.div`
     z-index: -1;
     width: 100%;
     height: 500px;
-    border-radius: 5px;
     background-color: #fff;
     overflow: hidden;
     .anim-wave {
