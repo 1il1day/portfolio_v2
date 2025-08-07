@@ -6,20 +6,21 @@ import 'swiper/css/free-mode';
 import 'swiper/css/effect-fade';
 import 'swiper/css/thumbs';
 
-type TabData = {
+type TabDataType = {
   title: string;
   contents?: React.ReactNode;
 }
 type Props = {
-  data: TabData[];
+  data: TabDataType[];
   useContents?: boolean;
+  isLightMode?: boolean;
 }
 
 /**
  * @param [props.data] - 탭 제목, 탭 내용 데이터
  * @param [props.useContents] - true일 경우, 탭 내용 표시
  */
-export default function SwiperTab({data, useContents = false}: Props) {
+export default function SwiperTab({data, useContents = false, isLightMode = false}: Props) {
   const [activeIndex, setActiveIndex] = useState(3);
 
   return (
@@ -47,7 +48,11 @@ export default function SwiperTab({data, useContents = false}: Props) {
           }
         >
           {data.map((item,index)=>(
-            <TabList key={index} className={index === activeIndex ? "active" : ""}>{item.title}</TabList>
+            <TabList 
+              key={index} 
+              className={index === activeIndex ? "active" : ""}
+              isLightMode={isLightMode}
+            >{item.title}</TabList>
           ))}
         </TabWrap>
       </div>
@@ -70,7 +75,8 @@ const TabWrap = styled(Swiper)`
     font-size: 16px;
   }
 `;
-const TabList = styled(SwiperSlide)`
+const TabList = styled(SwiperSlide)<{isLightMode:boolean}>`
+  color: #9B9DA0;
   text-align: center;
   cursor: pointer;
   @media (min-width: 350px) {
@@ -79,7 +85,7 @@ const TabList = styled(SwiperSlide)`
   }
   &.active{
     position: relative;
-    color: #CFD0D1;
+    color: ${({isLightMode})=> (isLightMode ? "#50576C":"#CFD0D1")};
     &::after{
       content: "";
       display: block;
@@ -88,7 +94,7 @@ const TabList = styled(SwiperSlide)`
       left: 0;
       width: 100%;
       height: 1px;
-      background-color: #CFD0D1;
+      background-color: ${({isLightMode})=> (isLightMode ? "#50576C":"#CFD0D1")};
     }
   }
 `;
