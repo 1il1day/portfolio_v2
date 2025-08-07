@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function ProjectItem({data}: Props) {
-  const isPc = useMediaQuery({ minWidth: 768 });
+  const isPc = useMediaQuery({ minWidth: 1200 });
   const openMobileWindow = (
     e: React.MouseEvent<HTMLAnchorElement>,
     url: string
