@@ -89,9 +89,9 @@ export default function MainSection() {
           <span className="color-default">console.</span>
           <span className="color-blue">log</span>
           <span className="color-yellow">(</span>
-          "배움에 즐거움을 느끼며, 지속적으로 성장하고 발전하는 것을 중요하게 여깁니다.\n
+          "배움에 즐거움을 느끼며, 꾸준한 성장과 발전을 중요하게 생각합니다.\n
           <br />
-          40여 개의 프로젝트에 참여하며 다국어 개발, 스크롤 인터랙션 등의 실무 역량을 가지고 있습니다.\n
+          40여 개의 프로젝트에 참여하며 다국어 개발, GSAP, ScrollTrigger, Juicer API 등의 실무 역량을 쌓았습니다.\n
           <br />
           사용자의 입장에서 일관된 경험을 할 수 있는 퍼블리싱을 하겠습니다."
           <span className="color-yellow">)</span>
