@@ -91,6 +91,7 @@ const ContactListWrap = styled.ul`
   }
 `;
 const ContactList = styled.li`
+  z-index: 1;
   @media (hover: hover) {
     &:hover{
       .list-title{

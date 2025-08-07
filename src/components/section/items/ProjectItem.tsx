@@ -101,7 +101,10 @@ const ImgBox = styled.div`
   }
 `;
 const ContentsBox = styled.div`
-  padding: 35px 40px;
+  padding: 25px 20px;
+  @media (min-width: 768px) {
+    padding: 35px 40px;
+  }
 `;
 const DateWrap = styled.div`
   display: flex;
@@ -113,16 +116,26 @@ const DateWrap = styled.div`
   }
 `;
 const Title = styled.h3`
-  margin-bottom: 35px;
-  font-size: clamp(32px,3.37vw ,48px);
+  margin-bottom: 20px;
+  font-size: 28px;
   font-weight: 600;
   color: #fff;
   @media (min-width: 1200px) {
+    font-size: clamp(28px,3.37vw ,38px);
+  }
+  @media (min-width: 1600px) {
+    margin-bottom: 35px;
     font-size: 48px;
+  }
+  @media (min-width: 1920px) {
+    margin-bottom: 35px;
   }
 `;
 const BadgeWrap = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
+  @media (min-width: 1600px) {
+    gap: 12px;
+  }
 `;
