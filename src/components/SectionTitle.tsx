@@ -17,7 +17,7 @@ export default function SectionTitle({children}: Props) {
       <span className="spin-star">
         <Icon name={FaStarOfLife} size={isPc ? 50 : 30} color="#4194E9"/>
       </span>
-      <div>{children}</div>
+      <div className="section-title">{children}</div>
     </SectionTitleWrap>
   )
 }
