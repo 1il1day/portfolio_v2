@@ -62,20 +62,26 @@ const ContactSectionWrap = styled.section`
     height: 500px;
     background-color: #fff;
     overflow: hidden;
+    @media (min-width: 768px) {
+      height: 600px;
+    }
     .anim-wave {
       position: absolute;
       scale: 2;
-      width: 1200px;
-      height: 1200px;
-      top: -330%;
+      width: 1000px;
+      height: 1000px;
+      top: -230%;
       left: 0%;
       border-radius: 40%;
       background: #50576C;
       animation: animSpin 20s infinite linear;
+      will-change: transform;
       @media (min-width: 768px) {
         scale: 3;
-        top: -420%;
+        top: -347%;
         left: 20%;
+        width: 1200px;
+        height: 1200px;
       }
     }
   }

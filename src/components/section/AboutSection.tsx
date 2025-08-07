@@ -226,6 +226,7 @@ const AboutSectionWrap = styled.section`
         border-radius: 40%;
         background: #fff;
         animation: animSpin 20s infinite linear;
+        will-change: transform;
         @media (min-width: 768px) {
           scale: 3;
           top: -347%;
