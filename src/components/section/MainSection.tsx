@@ -219,7 +219,7 @@ export default function MainSection() {
     <MainSectionWrap id="main" className={isLightMode ? "light-mode" : "dark-mode"}>
       <MenuBar>
         <FileTitleWrap>
-          <img src="../images/icon_javascript.svg" alt="JS 이미지" />
+          <img src={`${process.env.PUBLIC_URL}/images/icon_javascript.svg`} alt="JS 이미지" />
           <FileTitle>publisher.js</FileTitle>
         </FileTitleWrap>
       </MenuBar>

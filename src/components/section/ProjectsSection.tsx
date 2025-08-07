@@ -20,7 +20,7 @@ import Icon from '../common/Icon';
 const projectsData = [
   {
     title: '대한조선',
-    image: '../images/img_project_01.png',
+    image: `${process.env.PUBLIC_URL}/images/img_project_01.png`,
     alt: '대한조선 썸네일 이미지',
     period: '2024.11.28 - 2024.12.06 (7일)',
     type: '반응형 웹',
@@ -29,7 +29,7 @@ const projectsData = [
   },
   {
     title: 'Metanex',
-    image: '../images/img_project_02.png',
+    image: `${process.env.PUBLIC_URL}/images/img_project_02.png`,
     alt: '메타넥스 썸네일 이미지',
     period: '2024.08 - 2024.08 (10일)',
     type: 'React 반응형 웹',
@@ -38,7 +38,7 @@ const projectsData = [
   },
   {
     title: 'SAMYANG VALVE',
-    image: '../images/img_project_03.png',
+    image: `${process.env.PUBLIC_URL}/images/img_project_03.png`,
     alt: '삼양발브 썸네일 이미지',
     period: '2024.07 - 2024.08 (10일)',
     type: 'React 반응형 웹',
@@ -47,7 +47,7 @@ const projectsData = [
   },
   {
     title: '한솔데코',
-    image: '../images/img_project_04.png',
+    image: `${process.env.PUBLIC_URL}/images/img_project_04.png`,
     alt: '한솔데코 썸네일 이미지',
     period: '2023.05 - 2023.05 (11일)',
     type: '반응형 웹',
@@ -56,7 +56,7 @@ const projectsData = [
   },
   {
     title: '영화 ‘밀수’ 이벤트 페이지',
-    image: '../images/img_project_05.png',
+    image: `${process.env.PUBLIC_URL}/images/img_project_05.png`,
     alt: '밀수 썸네일 이미지',
     period: '2023.05 - 2023.07',
     type: '반응형 웹',

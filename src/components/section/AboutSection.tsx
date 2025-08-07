@@ -36,42 +36,42 @@ const cardData = {
   ],
   skills: [
     {
-      src: "../images/icon_html.png",
+      src: `${process.env.PUBLIC_URL}/images/icon_html.png`,
       alt: "HTML5 로고 이미지",
       title: "HTML5",
     },
     {
-      src: "../images/icon_css.png",
+      src: `${process.env.PUBLIC_URL}/images/icon_css.png`,
       alt: "CSS3 로고 이미지",
       title: "CSS3",
     },
     {
-      src: "../images/icon_sass.svg",
+      src: `${process.env.PUBLIC_URL}/images/icon_sass.svg`,
       alt: "SCSS 로고 이미지",
       title: "SCSS",
     },
     {
-      src: "../images/icon_javascript.svg",
+      src: `${process.env.PUBLIC_URL}/images/icon_javascript.svg`,
       alt: "JavaScript 로고 이미지",
       title: "JavaScript",
     },
     {
-      src: "../images/icon_jquery.png",
+      src: `${process.env.PUBLIC_URL}/images/icon_jquery.png`,
       alt: "jQuery 로고 이미지",
       title: "jQuery",
     },
     {
-      src: "../images/icon_react.svg",
+      src: `${process.env.PUBLIC_URL}/images/icon_react.svg`,
       alt: "React 로고 이미지",
       title: "React",
     },
     {
-      src: "../images/icon_typescript.svg",
+      src: `${process.env.PUBLIC_URL}/images/icon_typescript.svg`,
       alt: "TypeScript 로고 이미지",
       title: "TypeScript",
     },
     {
-      src: "../images/icon_styled-components.png",
+      src: `${process.env.PUBLIC_URL}/images/icon_styled-components.png`,
       alt: "Styled-Component 로고 이미지",
       title: "Styled-Component",
     },
