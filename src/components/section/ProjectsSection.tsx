@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
 import { Navigation } from 'swiper/modules';
 import { useMediaQuery } from 'react-responsive';
 import ProjectItem from '../ProjectItem';
@@ -12,6 +14,7 @@ import ProjectItem from '../ProjectItem';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CircleBtnStyle } from '../../style/CommonStyle';
+import Icon from '../Icon';
 
 
 const projectsData = [
@@ -56,7 +59,7 @@ const projectsData = [
     image: '../images/img_project_05.png',
     alt: '밀수 썸네일 이미지',
     period: '2023.05 - 2023.07',
-    type: 'React 반응형 웹',
+    type: '반응형 웹',
     url: null,
     docUrl: 'https://charm-ski-3f0.notion.site/197977f397df811fb243e2b3a847db3f',
   },
@@ -71,30 +74,41 @@ export default function ProjectsSection() {
   useLayoutEffect(() => {
     let mm = gsap.matchMedia();
 
-    mm.add("(max-width: 1200px)", () => { // ~ 1200px
-      const lists = gsap.utils.toArray('.project-list') as HTMLElement[];
-  
-      lists.forEach((item) => {
-        const imgBox = item.querySelector('.img-box');
-        if (!imgBox) return;
-  
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-            // markers: true,
-            onEnter: () => imgBox.classList.add('hidden-dim'),
-            onEnterBack: () => imgBox.classList.add('hidden-dim'),
-            onLeave: () => imgBox.classList.remove('hidden-dim'),
-            onLeaveBack: () => imgBox.classList.remove('hidden-dim'),
-          },
+    const createAnimation = () => {
+      mm.add("(max-width: 1200px)", () => { // ~ 1200px
+        const lists = gsap.utils.toArray('.project-list') as HTMLElement[];
+    
+        lists.forEach((item) => {
+          const imgBox = item.querySelector('.img-box');
+          if (!imgBox) return;
+    
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: item,
+              start: "top center",
+              end: "bottom center",
+              scrub: true,
+                  invalidateOnRefresh: true,
+              // markers: true,
+              onEnter: () => imgBox.classList.add('hidden-dim'),
+              onEnterBack: () => imgBox.classList.add('hidden-dim'),
+              onLeave: () => imgBox.classList.remove('hidden-dim'),
+              onLeaveBack: () => imgBox.classList.remove('hidden-dim'),
+            },
+          });
         });
       });
-      return () => mm.revert(); // 클린업
-    });
+    }
+    createAnimation(); // 초기 실행
+
+    // resize 시 요소 위치 잡기
+    window.addEventListener("resize", createAnimation);
+    return () => { // 클린업
+      mm.revert();
+      window.removeEventListener("resize", createAnimation);
+    }
   }, []);
+
 
   return (
     <ProjectsSectionWrap id="projects">
@@ -103,8 +117,12 @@ export default function ProjectsSection() {
           <SectionTitle>PROJECTS</SectionTitle>
           {isPc &&
             <BtnWrap>
-              <SwiperBtn type="button" className="swiper-prev-btn">이전</SwiperBtn>
-              <SwiperBtn type="button" className="swiper-next-btn">다음</SwiperBtn>
+              <SwiperBtn type="button" className="swiper-prev-btn">
+                <Icon name={FaArrowLeft}/>
+              </SwiperBtn>
+              <SwiperBtn type="button" className="swiper-next-btn">
+                <Icon name={FaArrowRight}/>
+              </SwiperBtn>
             </BtnWrap>
           }
         </div>
@@ -184,16 +202,21 @@ const BtnWrap = styled.div`
 `;
 const SwiperBtn = styled.button`
   ${CircleBtnStyle}
+  transition: all .4s;
+  &:hover{
+    background-color: #4194E9;
+    color: #fff;
+  }
   &.swiper-button-disabled{
-    opacity: 0.7;
     background-color: #50576C;
-    color: #b0b4bd;
+    color: #9b9da0;
     pointer-events: none;
   }
 `;
 const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
+  user-select: none;
   .swiper-slide{
     height: 100%;
     cursor: grab;
