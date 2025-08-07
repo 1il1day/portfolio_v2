@@ -26,6 +26,7 @@ export default function SectionTitle({children}: Props) {
 }
 
 const SectionTitleWrap = styled.div`
+  position: relative;
   display: inline-flex;
   align-items: start;
   flex-direction: column;
