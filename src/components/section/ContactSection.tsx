@@ -24,7 +24,7 @@ export default function ContactSection() {
       </div>
       <SectionInner>
         <TitleIconWrap>
-          <SectionTitle>contact</SectionTitle>
+          <SectionTitle>CONTACT</SectionTitle>
           <a href="https://github.com/1il1day" target="_black">
             <Icon name={GrGithub} size={50} color="#282C34"/>
           </a>
