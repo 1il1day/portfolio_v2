@@ -5,7 +5,7 @@ import { FaArrowDown } from "react-icons/fa";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { AnimUpDown, CircleBtnStyle } from '../../style/CommonStyle';
+import { AnimUpDown, AnimWave, CircleBtnStyle } from '../../style/CommonStyle';
 import Icon from '../common/Icon';
 import { useMediaQuery } from 'react-responsive';
 import AboutCard from './items/AboutCard';
@@ -194,6 +194,7 @@ export default function AboutSection() {
 }
 
 const AboutSectionWrap = styled.section`
+  overflow: hidden;
   position: relative;
   @media (min-width: 1200px) {
     height: 200vh;
@@ -204,38 +205,7 @@ const AboutSectionWrap = styled.section`
     @media (min-width: 1200px) {
       height: 100vh;
     }
-    .anim-wave-wrap{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 500px;
-      background-color: #50576C;
-      overflow: hidden;
-      @media (min-width: 768px) {
-        height: 600px;
-      }
-      .anim-wave {
-        position: absolute;
-        scale: 2;
-        width: 1000px;
-        height: 1000px;
-        top: -230%;
-        left: 0%;
-        border-radius: 40%;
-        background: #fff;
-        animation: animSpin 20s infinite linear;
-        will-change: transform;
-        @media (min-width: 768px) {
-          scale: 3;
-          top: -347%;
-          left: 20%;
-          width: 1200px;
-          height: 1200px;
-        }
-      }
-    }
+    ${AnimWave}
   }
   .about-2{
     position: relative;

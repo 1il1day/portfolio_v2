@@ -4,6 +4,7 @@ import SectionTitle from '../common/SectionTitle';
 import { GrGithub } from "react-icons/gr";
 import Icon from '../common/Icon';
 import Badge from '../common/Badge';
+import { AnimWave } from '../../style/CommonStyle';
 
 const listData = [
   {
@@ -52,37 +53,13 @@ const ContactSectionWrap = styled.section`
   @media (min-width: 1200px) {
     padding-top: 160px;
   }
-
+  ${AnimWave}
   .anim-wave-wrap{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 500px;
-    background-color: #fff;
-    overflow: hidden;
-    @media (min-width: 768px) {
-      height: 600px;
-    }
-    .anim-wave {
-      position: absolute;
-      scale: 2;
-      width: 1000px;
-      height: 1000px;
-      top: -230%;
-      left: 0%;
-      border-radius: 40%;
-      background: #50576C;
-      animation: animSpin 20s infinite linear;
-      will-change: transform;
-      @media (min-width: 768px) {
-        scale: 3;
-        top: -347%;
-        left: 20%;
-        width: 1200px;
-        height: 1200px;
-      }
+    bottom: unset;
+    top: 0px;
+    background: #fff;
+    .anim-wave{
+      background-color: #50576C;
     }
   }
 `;
@@ -106,6 +83,7 @@ const ContactListWrap = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  z-index: 1;
   padding-top: 100px;
   @media (min-width: 768px) {
     padding-top: 220px;

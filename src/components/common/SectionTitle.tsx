@@ -30,6 +30,7 @@ const SectionTitleWrap = styled.div`
   align-items: start;
   flex-direction: column;
   gap: 20px;
+  z-index: 1;
   font-family: 'BoldDunggeunmo',sans-serif;
   font-size: 36px;
   ${AnimSpinStar}
