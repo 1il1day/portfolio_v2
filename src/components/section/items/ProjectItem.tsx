@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Badge from '../../common/Badge';
+import { useMediaQuery } from 'react-responsive';
 
 type ListDataType = {
   title: string;
@@ -16,6 +17,7 @@ type Props = {
 }
 
 export default function ProjectItem({data}: Props) {
+  const isPc = useMediaQuery({ minWidth: 768 });
   const openMobileWindow = (
     e: React.MouseEvent<HTMLAnchorElement>,
     url: string
@@ -43,14 +45,16 @@ export default function ProjectItem({data}: Props) {
           {data.url && (
             <>
               <a href={data.url} target="_blank">
-                <Badge>PC 새창보기</Badge>
+                <Badge>{isPc ? "PC 새창보기" : "보러가기"}</Badge>
               </a>
-              <a
-                href={data.url}
-                onClick={(e) => openMobileWindow(e, data.url!)}
-              >
-                <Badge>Mobile 새창보기</Badge>
-              </a>
+              {isPc &&
+                <a
+                  href={data.url}
+                  onClick={(e) => openMobileWindow(e, data.url!)}
+                >
+                  <Badge>Mobile 새창보기</Badge>
+                </a>
+              }
             </>
           )}
           {data.docUrl && (
